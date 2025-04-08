@@ -11,12 +11,12 @@ class LoggingLvl(Enum):
     CRITICAL = logging.CRITICAL
 
 def setup_app_logging(
-    log_dir="logs",
-    log_file="ft-api.log",
-    max_bytes=1_000_000,
-    backup_count=3,
-    file_level=logging.DEBUG,
-    console_level=logging.INFO
+    log_dir: str ="logs",
+    log_file: str ="ft-api.log",
+    max_bytes: int = 1_000_000,
+    backup_count: int = 3,
+    file_level: str = "DEBUG",
+    console_level: str = "INFO"
 ):
     def resolve_log_level(level):
         if isinstance(level, str):
