@@ -16,7 +16,7 @@ def setup_app_logging(
     max_bytes: int = 1_000_000,
     backup_count: int = 3,
     file_level: str = "DEBUG",
-    console_level: str = "INFO"
+    stream_level: str = "INFO"
 ):
     def resolve_log_level(level):
         if isinstance(level, str):
@@ -27,7 +27,7 @@ def setup_app_logging(
         return level
     
     file_level = resolve_log_level(file_level)
-    console_level = resolve_log_level(console_level)
+    stream_level = resolve_log_level(stream_level)
 
     log_path = os.path.join(log_dir, log_file)
     os.makedirs(log_dir, exist_ok=True)
@@ -49,7 +49,7 @@ def setup_app_logging(
 
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(formatter)
-    console_handler.setLevel(console_level)
+    console_handler.setLevel(stream_level)
     logger.addHandler(console_handler)
 
     logger.debug("Logging has been configured.")
