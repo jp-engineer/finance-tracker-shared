@@ -53,3 +53,5 @@ def setup_app_logging(
     logger.addHandler(console_handler)
 
     logger.debug("Logging has been configured.")
+
+setup_app_logging()
