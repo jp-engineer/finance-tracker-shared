@@ -48,5 +48,5 @@ class SettingDeveloperRead(SettingDeveloperBase):
         "from_attributes": True
     }
 
-class SettingDeveloperlUpdate(BaseModel):
+class SettingDeveloperUpdate(BaseModel):
     value: Any
