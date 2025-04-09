@@ -37,13 +37,13 @@ class SettingViewBase(BaseModel):
             if value.lower() not in DATE_FORMATS:
                 raise ValueError(f"Invalid date format: {value}")
             else:
-                value = value.upper()
+                self.value = value.upper()
             
         elif key == "user_name":
             if not value.isalnum():
                 raise ValueError("User name must be alphanumeric")
             else:
-                value = value.title()
+                self.value = value.title()
 
         elif key == "week_starts_on":
             if value.lower() not in DAYS_LONG and value.lower() not in DAYS_SHORT:
@@ -51,7 +51,7 @@ class SettingViewBase(BaseModel):
             else:
                 if value in DAYS_SHORT:
                     value = DAYS_LONG[DAYS_SHORT.index(value)]
-                value = value.capitalize()
+                self.value = value.capitalize()
 
         return self
 
