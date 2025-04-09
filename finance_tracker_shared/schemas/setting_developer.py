@@ -1,3 +1,4 @@
+from typing import Any
 from datetime import datetime
 from pydantic import BaseModel, field_validator, model_validator, computed_field
 
@@ -47,5 +48,5 @@ class SettingDeveloperRead(SettingDeveloperBase):
         "from_attributes": True
     }
 
-class SettingDeveloperUpdate(SettingDeveloperBase):
-    pass
+class SettingDeveloperlUpdate(BaseModel):
+    value: Any

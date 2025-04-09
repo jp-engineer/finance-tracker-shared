@@ -1,3 +1,4 @@
+from typing import Any
 from pydantic import BaseModel, field_validator, model_validator, computed_field
 import pycountry
 
@@ -67,5 +68,5 @@ class SettingGeneralRead(SettingGeneralBase):
         "from_attributes": True
     }
 
-class SettingGeneralUpdate(SettingGeneralBase):
-    pass
+class SettingGeneralUpdate(BaseModel):
+    value: Any

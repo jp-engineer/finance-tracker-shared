@@ -1,3 +1,4 @@
+from typing import Any
 from pydantic import BaseModel, field_validator, model_validator, computed_field
 
 KEYS = ["date_format", "user_name", "week_starts_on"]
@@ -64,5 +65,5 @@ class SettingViewRead(SettingViewBase):
         "from_attributes": True
     }
 
-class SettingViewUpdate(SettingViewBase):
-    pass
+class SettingViewUpdate(BaseModel):
+    value: Any
