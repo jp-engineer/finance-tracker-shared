@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator, model_validator
+from pydantic import BaseModel, field_validator, model_validator, computed_field
 import pycountry
 
 KEYS = ["country_code", "default_currency", "default_currency_symbol"]
@@ -12,12 +12,14 @@ CURRENCY_SYMBOLS = [
     "Ar", "ден", "K", "₮", "MOP$", "UM", "Rf", "MK", "RM", "MT", "₦", "C$", "B/.",
     "S/.", "zł", "Gs", "￥", "Дин.", "₽", "R₣", "ج.س.", "Le", "S", "Db", "E", "SM",
     "T", "د.ت", "T$", "₤", "₺", "TT$", "NT$", "TSh", "₴", "USh", "$U", "VT",
-    "WS$", "FCFA", "Ƀ", "CFA", "₣", "R", "Z$"]
+    "WS$", "FCFA", "Ƀ", "CFA", "₣", "R", "Z$"
+]
 
 class SettingGeneralBase(BaseModel):
     key: str
     value: str
 
+    @computed_field
     @property
     def norm_key(self) -> str:
         return self.key.replace("_", " ").capitalize()
@@ -42,9 +44,8 @@ class SettingGeneralBase(BaseModel):
         if key == "country_code":
             if not pycountry.countries.get(alpha_2=value.upper()):
                 raise ValueError(f"Invalid country code: {value}")
-            else:
-                value = value.upper()
-        
+            self.value = value.upper()
+
         elif key == "default_currency":
             if not pycountry.currencies.get(alpha_3=value.upper()):
                 raise ValueError(f"Invalid currency code: {value}")

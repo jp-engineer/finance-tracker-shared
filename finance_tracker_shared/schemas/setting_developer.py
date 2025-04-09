@@ -1,5 +1,5 @@
 from datetime import datetime
-from pydantic import BaseModel, field_validator, model_validator
+from pydantic import BaseModel, field_validator, model_validator, computed_field
 
 KEYS = ["start_date"]
 
@@ -7,6 +7,7 @@ class SettingDeveloperBase(BaseModel):
     key: str
     value: str
 
+    @computed_field
     @property
     def norm_key(self) -> str:
         return self.key.replace("_", " ").capitalize()

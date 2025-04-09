@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator, model_validator
+from pydantic import BaseModel, field_validator, model_validator, computed_field
 
 KEYS = ["date_format", "user_name", "week_starts_on"]
 
@@ -10,6 +10,7 @@ class SettingViewBase(BaseModel):
     key: str
     value: str
 
+    @computed_field
     @property
     def norm_key(self) -> str:
         return self.key.replace("_", " ").capitalize()
