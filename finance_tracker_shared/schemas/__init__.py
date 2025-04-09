@@ -11,6 +11,7 @@ from .scheduled_transaction import ScheduledTransactionBase, ScheduledTransactio
 from .setting_developer import SettingDeveloperBase, SettingDeveloperCreate, SettingDeveloperRead, SettingDeveloperUpdate
 from .setting_general import SettingGeneralBase, SettingGeneralCreate, SettingGeneralRead, SettingGeneralUpdate
 from .setting_view import SettingViewBase, SettingViewCreate, SettingViewRead, SettingViewUpdate
+from .setting_all import SettingAllUpdatePayload
 from .transaction_all import TransactionAllBase, TransactionAllCreate, TransactionAllRead
 from .transaction_expense import TransactionExpenseBase, TransactionExpenseCreate, TransactionExpenseRead
 from .transaction_payment import TransactionPaymentBase, TransactionPaymentCreate, TransactionPaymentRead
