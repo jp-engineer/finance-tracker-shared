@@ -69,6 +69,7 @@ class SettingGeneralRead(SettingGeneralBase):
     }
 
 class SettingGeneralUpdate(BaseModel):
+    key: str
     value: Any
 
     @model_validator(mode="before")
@@ -81,6 +82,6 @@ class SettingGeneralUpdate(BaseModel):
             raise ValueError("Key must be provided for validation")
 
         validated = SettingGeneralBase(key=key, value=value)
-        
+
         return {"value": validated.value}
     
