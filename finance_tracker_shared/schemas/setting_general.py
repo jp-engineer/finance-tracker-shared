@@ -66,3 +66,6 @@ class SettingGeneralRead(SettingGeneralBase):
     model_config = {
         "from_attributes": True
     }
+
+class SettingGeneralUpdate(SettingGeneralBase):
+    pass

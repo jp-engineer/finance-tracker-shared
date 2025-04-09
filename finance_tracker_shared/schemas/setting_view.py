@@ -63,3 +63,6 @@ class SettingViewRead(SettingViewBase):
     model_config = {
         "from_attributes": True
     }
+
+class SettingViewUpdate(SettingViewBase):
+    pass
