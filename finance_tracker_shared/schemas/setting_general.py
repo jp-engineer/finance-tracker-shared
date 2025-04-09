@@ -54,6 +54,8 @@ class SettingGeneralBase(BaseModel):
             if value not in CURRENCY_SYMBOLS:
                 raise ValueError(f"Invalid currency symbol: {value}")
 
+        return self
+
 class SettingGeneralCreate(SettingGeneralBase):
     pass
 
