@@ -49,4 +49,21 @@ class SettingDeveloperRead(SettingDeveloperBase):
     }
 
 class SettingDeveloperUpdate(BaseModel):
+    key: str
     value: Any
+
+    @model_validator(mode="before")
+    @classmethod
+    def validate_with_key(cls, data: dict) -> dict:
+        key = data.get("key")
+        value = data.get("value")
+
+        if key is None:
+            raise ValueError("Key must be provided for validation")
+
+        validated = SettingDeveloperBase(key=key, value=value)
+
+        return {
+            "key": validated.key,
+            "value": validated.value
+        }
