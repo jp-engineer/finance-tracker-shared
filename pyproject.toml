@@ -9,7 +9,7 @@ packages = [{ include = "finance_tracker_shared" }]
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "pydantic>===2.6.4",
+    "pydantic>=2.0",
     "pycountry==24.6.1"
 ]
 
