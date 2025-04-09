@@ -1,1 +1,1 @@
-from api_response import ApiResponse
+from .api_response import APIResponse
