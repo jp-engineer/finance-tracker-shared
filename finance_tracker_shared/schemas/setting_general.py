@@ -67,7 +67,6 @@ class SettingGeneralRead(SettingGeneralBase):
     model_config = {
         "from_attributes": True
     }
-
 class SettingGeneralUpdate(BaseModel):
     key: str
     value: Any
@@ -83,5 +82,7 @@ class SettingGeneralUpdate(BaseModel):
 
         validated = SettingGeneralBase(key=key, value=value)
 
-        return {"value": validated.value}
-    
+        return {
+            "key": validated.key,
+            "value": validated.value
+        }
