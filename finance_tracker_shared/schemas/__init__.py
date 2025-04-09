@@ -8,9 +8,9 @@ from .enums import AccountTypeEnum, FolioCategoryEnum, TransactionTypeEnum
 from .folio import FolioBase, FolioCreate, FolioRead
 from .recurring_transaction import RecurringTransactionBase, RecurringTransactionCreate, RecurringTransactionRead
 from .scheduled_transaction import ScheduledTransactionBase, ScheduledTransactionCreate, ScheduledTransactionRead
-from .setting_developer import SettingDeveloperBase, SettingDeveloperCreate, SettingDeveloperRead
-from .setting_general import SettingGeneralBase, SettingGeneralCreate, SettingGeneralRead
-from .setting_view import SettingViewBase, SettingViewCreate, SettingViewRead
+from .setting_developer import SettingDeveloperBase, SettingDeveloperCreate, SettingDeveloperRead, SettingDeveloperUpdate
+from .setting_general import SettingGeneralBase, SettingGeneralCreate, SettingGeneralRead, SettingGeneralUpdate
+from .setting_view import SettingViewBase, SettingViewCreate, SettingViewRead, SettingViewUpdate
 from .transaction_all import TransactionAllBase, TransactionAllCreate, TransactionAllRead
 from .transaction_expense import TransactionExpenseBase, TransactionExpenseCreate, TransactionExpenseRead
 from .transaction_payment import TransactionPaymentBase, TransactionPaymentCreate, TransactionPaymentRead
