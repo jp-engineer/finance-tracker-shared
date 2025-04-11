@@ -40,8 +40,13 @@ class SettingViewBase(BaseModel):
                 self.value = value.upper()
             
         elif key == "user_name":
-            if not value.isalnum():
-                raise ValueError("User name must be alphanumeric")
+            special_chars = ["!", "@", "#", "$", "%", "^", "*", "(", ")", "=", "+", "{", "}", "[", "]", ";", ":", "'", '"', "<", ">", ",", ".", "?", "/", "|", "\\"]
+            if any(char in value for char in special_chars):
+                raise ValueError("User name cannot contain special characters")
+            elif len(value) < 3:
+                raise ValueError("User name must be at least 3 characters long")
+            elif len(value) > 20:
+                raise ValueError("User name must not exceed 20 characters")
             else:
                 self.value = value.title()
 
